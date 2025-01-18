@@ -1,0 +1,1 @@
+docker run -d -p 8080:80 -v /Volumes/pakOs/Projects/Php/www/cake5_mod:/var/www/html --name websvr-container websvr:latest 

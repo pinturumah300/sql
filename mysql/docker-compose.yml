@@ -1,0 +1,26 @@
+services:
+  database:
+    container_name: mysqlsvr 
+    build:
+      context: ./mysql      
+      dockerfile: mysql-docker 
+    ports:
+      - "3306:3306"
+    user: mysql
+    command: --sql-mode=''
+    environment:
+      MYSQL_DATABASE: simpelab
+      MYSQL_ROOT_PASSWORD: Gr0t
+      MYSQL_USER: salmon
+      MYSQL_PASSWORD: fish
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    volumes:
+      - /Volumes/Datos/Projects/Mysql/data/:/var/lib/mysql
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
+    #driver: bridge
+    external: true
